@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Recipes</title>
+</head>
+<body>
+    <div class="start_pg_wrapper">
+        <!-- <div id="head_recipes">
+            <h2>Recipes</h2>
+        </div> -->
+        <div id="form1">
+            <div class="form_topbox">
+                <h2>Recipes - Register</h2>
+            </div>
+        {% with messages = get_flashed_messages(category_filter=['register']) %}
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <form action="/register" method="post">
+        <label for="f_name">First name:</label><br>
+        <input type="text" id="f_name" name="f_name" value=""><br>
+        <label for="l_name">Last name:</label><br>
+        <input type="text" id="l_name" name="l_name" value=""><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" value=""><br>
+        <label for="pwd">Password:</label><br>
+        <input type="text" id="pwd" name="pwd" value="1 cap, 1 num, and 8+ characters long!"><br>
+        <label for="p_check">Confirm Password:</label><br>
+        <input type="text" id="p_check" name="p_check" value=""><br>
+        <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+        <div id="form2">
+            <div class="form_topbox">
+                <h2>Recipes - Sign In</h2>
+            </div>    
+        {% with messages = get_flashed_messages(category_filter=['sign_in']) %}
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <form action="/sign_in" method="post">
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" value=""><br>
+        <label for="pwd">Password:</label><br>
+        <input type="text" id="pwd" name="pwd" value=""><br>
+        <button type="submit">Login</button>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

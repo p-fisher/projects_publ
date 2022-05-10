@@ -1,0 +1,229 @@
+* { /* Universal Reset from Jeff Starr */
+    vertical-align: top;
+    /* font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: 100%; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* border: 0 none;
+    outline: 0;
+    padding: 0;
+    margin: 0; */
+}
+.start_pg_wrapper {
+    width: 800px;
+    height: auto;
+    margin: 0 auto;
+    /* background-color:cadetblue; */
+    color: dimgray;
+    text-align: center;
+    display:flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.wrapper {
+    width: 800px;
+    height: auto;
+    margin: 0 auto;
+    /* background-color:cadetblue;
+    color: dimgray; */
+    text-align: left;
+    /* display:flex;
+    justify-content: space-between;
+    padding: 20px; */
+}
+
+/* TOPBAR and NAV  */
+
+.topbar_div {
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.title_div{
+    width: 70%;
+    text-align: left;
+}
+.nav_div {
+    width: 30%;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: #333333; */
+    /* border: 1px solid darkgray; */
+    /* height: 30px; */
+}
+li {
+    float: left;
+    border: 1px solid darkgray;
+    width: 100px;
+    height: 36px;
+   /* line-height: 36px; */
+    margin-left: 15px;
+
+}
+li a {
+    display: block;
+    color: darkgray;
+    text-align: center;
+    /* padding: 16px; */
+    text-decoration: none;
+    height: 36px;
+    line-height: 36px;
+}
+li a:hover {
+    background-color:lightslategray;
+}
+
+/* FORM STUFF */
+
+.form_topbox {
+    width:100%;
+    /* background-color:; */
+    color: white;
+    text-align: center;
+}
+#form1 {
+    width: 320px;
+    /* align-content: left; */
+    text-align: left;
+    padding: 10px;
+    background-color:darkcyan;
+    color: antiquewhite;
+    padding: 20px;
+    /* align-items: center; */
+}
+#form2 {
+    width: 320px;
+    /* align-content: left; */
+    text-align: left;
+    padding: 10px;
+    background-color: darkgreen;
+    color: antiquewhite;
+    padding: 20px;
+    /* align-items: center; */
+}
+#last_email {
+    background-color: rgb(240, 200, 99);
+    font-weight: bold;
+}
+input[type=text] {
+    margin: 5px 0 20px 0;
+    width: 97%;
+    height: 25px;
+    border-radius: 3px;
+    border:0;
+}
+button {
+    height: 25px;
+}
+#exit_btn {
+    height:25px;
+    border-radius: 3px;
+}
+
+/* SUCCESS PAGE TABLE*/
+
+table {
+    width: 100%;
+    border: 1px solid black;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+/* ALERT (FLASH) */
+.div_flash {
+    background-color:maroon;
+    color: white;
+}
+
+
+/* RECIPE */
+.recipe_detail {
+    border: 1px solid black;
+    width: 94%;
+    padding: 20px;
+    background-color:antiquewhite;
+    /* display: flex; */
+    /* flex: 2; */
+}
+.detail_row {
+    display: flex;
+    /* vertical-align: top; */
+}
+.detail_left {
+    font-weight: 900;
+    text-align: right;
+    margin-right: 30px;
+    width: 22%;
+    align-items: top;
+    line-height: 22px;
+    /* display: flex; */
+}
+.detail_right {
+    font-weight: 100;
+    width: 78%;
+    align-items: top;
+    line-height: 22px;
+}
+
+/* ADD or EDIT */
+.add_form {
+    border: 1px solid black;
+    width: 94%;
+    padding: 20px;
+    background-color:antiquewhite;
+    /* display: flex; */
+    /* flex: 2; */
+}
+.edit_form {
+    border: 1px solid black;
+    width: 94%;
+    padding: 20px;
+    background-color:lightblue;
+    /* display: flex; */
+    /* flex: 2; */
+}
+
+.add_row {
+    display: flex;
+    /* vertical-align: top; */
+}
+.add_left {
+    /* font-weight: 900; */
+    /* text-align: right; */
+    margin-right: 50px;
+    width: 40%;
+    align-items: top;
+    line-height: 22px;
+    /* display: flex; */
+}
+.add_right {
+    /* font-weight: 100; */
+    width: 45%;
+    align-items: top;
+    line-height: 22px;
+}
+
+/* OTHER */
+
+/* .warning {
+width: 85%;
+margin: 0 auto;
+background-color: red;
+color: white;
+text-align: center;
+height: 30px;
+} */
