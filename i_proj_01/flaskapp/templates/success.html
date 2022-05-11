@@ -21,20 +21,26 @@
             </div>
         </div>
         <div>
+            <p>Below are some bright ideas. First, care to add your own?</p>
+            <form action="/create/idea" method="POST">
+                <div>
+                    <!-- <label for="summary">First name:</label><br> -->
+                    <textarea id="summary" name="summary" cols="87" rows="4" value="Post something witty here."></textarea>
+                    <!-- <label for="user_id">First name:</label><br> -->
+                    <input type="hidden" id="user_id" name="user_id" value="{{user.id}}">
+                    <button>Idea!</button>
+            </div>
+            </form>
+
             <table>
             </br>
-                <!-- <tr>
-                    <th>Name</th>
-                    <th>Under 30 Minutes</th>
-                    <th>Actions</th>
-                </tr> -->
                     {% for idea in ideas %}
                 <tr>
-                    <td>{{idea.user_id}} says:</td> 
-                    <td>{{idea.created_at}}</td>
-                    <!-- <td>{{idea.idea_summ}}</td> -->
                     <!-- <td>{{idea.summary}}</td> -->
-                    <td>{{idea.id}}</td>
+                    <td style=width:10%>{{idea.user_id}}</td>
+                    <td style=width:50%>{{idea.summary}}</td>
+                    <td style=width:20%>{{idea.created_at}}</td>
+                    <!-- <td>{{idea.updated_at}}</td> -->
                 </tr>
                     {% endfor %}
             </table>

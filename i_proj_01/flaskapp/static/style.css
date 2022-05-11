@@ -122,6 +122,21 @@ input[type=text] {
     border-radius: 3px;
     border:0;
 }
+#summary {
+    margin: 0 0 30px 0;
+    /* width: 91%;
+    height: 25px; */
+    border-radius: 3px;
+    border:1px solid black;
+}
+input[type=textarea] {
+    /* margin: 5px 0 40px 0; */
+    /* width: 91%;
+    height: 25px; */
+    border-radius: 3px;
+    border:1px solid black;
+}
+
 button {
     height: 25px;
 }

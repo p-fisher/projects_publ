@@ -16,7 +16,7 @@ def create_idea():
         return redirect('/success')
     data = {
         "user_id": request.form["user_id"],
-        "idea_summ": request.form["idea_summ"],
+        "summary": request.form["summary"],
     }
     Idea.add_idea(data)
     return redirect('/success')

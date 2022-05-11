@@ -16,7 +16,7 @@ def index():
 @app.route('/register', methods=['POST'])
 def register():
     if not User.validate_register(request.form):
-        # print("**** VALIDATION FAILED ****")
+        print("**** VALIDATION FAILED ****")
         return redirect('/')
     data = {
         "f_name": request.form['f_name'],
