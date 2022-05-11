@@ -16,7 +16,7 @@ class Idea:
         self.summary = data['summary']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
-        self.ideas = []
+        self.users = []
 
 
     @classmethod
