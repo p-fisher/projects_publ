@@ -11,7 +11,7 @@
     <div class="wrapper">
         <div class="topbar_div">
             <div class="title_div">
-                <h1>Welcome, {{user.f_name}} of id {{user.id}}</h1>
+                <h1>Welcome, {{user.f_name}} at id {{user.id}}</h1>
             </div>
             <div class="nav_div">
                 <ul>
@@ -37,7 +37,7 @@
                     {% for idea in ideas %}
                 <tr>
                     <!-- <td>{{idea.summary}}</td> -->
-                    <td style=width:10%>{{idea.user_id}}</td>
+                    <td style=width:10%>{{idea.user.alias}}</td>
                     <td style=width:50%>{{idea.summary}}</td>
                     <td style=width:20%>{{idea.created_at}}</td>
                     <!-- <td>{{idea.updated_at}}</td> -->
