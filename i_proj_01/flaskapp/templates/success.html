@@ -37,10 +37,15 @@
                     {% for idea in ideas %}
                 <tr>
                     <!-- <td>{{idea.summary}}</td> -->
-                    <td style=width:10%>{{idea.user.alias}}</td>
-                    <td style=width:50%>{{idea.summary}}</td>
-                    <td style=width:20%>{{idea.created_at}}</td>
+                    <td style=width:20%>{{idea.user.alias}}</td>
+                    <td style=width:70%>{{idea.summary}}</td>
+                    <td style=width:10%><a href="/delete/idea/{{ idea.id }}">Delete</a></td>
+                    <!-- <td style=width:20%>{{idea.created_at}}</td> -->
                     <!-- <td>{{idea.updated_at}}</td> -->
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Like   |   (#) People like this</td>
                 </tr>
                     {% endfor %}
             </table>

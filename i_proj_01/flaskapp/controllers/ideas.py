@@ -22,6 +22,17 @@ def create_idea():
     return redirect('/success')
 
 
+@app.route('/delete/idea/<int:id>')
+def delete_idea(id):
+    if 'id' not in session:
+        return redirect('/exit')           # used only in GET method routes
+    data = {
+        "id":id
+    }
+    Idea.delete(data)
+    return redirect('/success')
+
+
 
 # @app.route('/details/<int:id>')
 # def show_idea(id):
@@ -79,22 +90,6 @@ def create_idea():
 #     }
 #     Idea.update(data)
 #     return redirect('/success')
-
-
-
-
-# @app.route('/delete/idea/<int:id>')
-# def delete_idea(id):
-#     if 'id' not in session:
-#         return redirect('/exit')           # used only in GET method routes
-#     data = {
-#         "id":id
-#     }
-#     Idea.delete(data)
-#     return redirect('/success')
-
-
-
 
 
 
