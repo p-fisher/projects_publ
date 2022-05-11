@@ -8,94 +8,90 @@ from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
 
-
-@app.route('/details/<int:id>')
-def show_idea(id):
-    if 'id' not in session:
-        return redirect('/exit')           # used only in GET method routes
-    data = {
-        "id": id
-    }
-    user_data = {
-        "id": session['id']
-    }
-    user=User.get_by_id(user_data)
-    this_idea=Idea.get_by_id(data)
-    return render_template('details.html',user=user,idea=this_idea)
-
-
-
-@app.route('/add')
-def new_idea():
-    if 'id' not in session:
-        return redirect('/exit')           # used only in GET method routes
-    user_data = {
-        "id":session['id']
-    }
-    user=User.get_by_id(user_data)
-    return render_template('add_idea.html', user=user)
-
-
-@app.route('/edit_load_idea/<int:id>')
-def edit_load_idea(id):
-    if 'id' not in session:
-        return redirect('/exit')           # used only in GET method routes
-    data = {
-        "id": id
-    }
-    user_data = {
-        "id":session['id']
-    }
-    user=User.get_by_id(user_data)
-    this_idea=Idea.get_by_id(data)
-    return render_template("edit_idea.html",user=user,idea=this_idea)
-
-
-
-@app.route('/edit_save_idea', methods=['POST'])
-def edit_save_idea():
-    data = {
-        "id": request.form['id'],
-        "r_name": request.form["r_name"],
-        "r_info": request.form["r_info"],
-        "instructions": request.form["instructions"],
-        "under30": request.form["under30"],
-        "last_made": request.form["last_made"],
-        # "user_id": session["id"]
-    }
-    Idea.update(data)
-    return redirect('/success')
-
-
-
 @app.route('/create/idea',methods=['POST'])
 def create_idea():
     # if 'user_id' not in session:            # session stuff a mess save for later
     #     return redirect('/logout')
     if not Idea.validate_idea(request.form):
-        return redirect('/add')
+        return redirect('/success')
     data = {
-        "r_name": request.form["r_name"],
-        "r_info": request.form["r_info"],
-        "instructions": request.form["instructions"],
-        "under30": request.form["under30"],
-        "last_made": request.form["last_made"],
-        # "user_id": session["user_id"]
+        "user_id": request.form["user_id"],
+        "idea_summ": request.form["idea_summ"],
     }
     Idea.add_idea(data)
     return redirect('/success')
 
 
 
-@app.route('/delete/idea/<int:id>')
-def delete_idea(id):
-    if 'id' not in session:
-        return redirect('/exit')           # used only in GET method routes
-    data = {
-        "id":id
-    }
-    Idea.delete(data)
-    return redirect('/success')
+# @app.route('/details/<int:id>')
+# def show_idea(id):
+#     if 'id' not in session:
+#         return redirect('/exit')           # used only in GET method routes
+#     data = {
+#         "id": id
+#     }
+#     user_data = {
+#         "id": session['id']
+#     }
+#     user=User.get_by_id(user_data)
+#     this_idea=Idea.get_by_id(data)
+#     return render_template('details.html',user=user,idea=this_idea)
+
+
+
+# @app.route('/add')
+# def new_idea():
+#     if 'id' not in session:
+#         return redirect('/exit')           # used only in GET method routes
+#     user_data = {
+#         "id":session['id']
+#     }
+#     user=User.get_by_id(user_data)
+#     return render_template('add_idea.html', user=user)
+
+
+# @app.route('/edit_load_idea/<int:id>')
+# def edit_load_idea(id):
+#     if 'id' not in session:
+#         return redirect('/exit')           # used only in GET method routes
+#     data = {
+#         "id": id
+#     }
+#     user_data = {
+#         "id":session['id']
+#     }
+#     user=User.get_by_id(user_data)
+#     this_idea=Idea.get_by_id(data)
+#     return render_template("edit_idea.html",user=user,idea=this_idea)
+
+
+
+# @app.route('/edit_save_idea', methods=['POST'])
+# def edit_save_idea():
+#     data = {
+#         "id": request.form['id'],
+#         "r_name": request.form["r_name"],
+#         "r_info": request.form["r_info"],
+#         "instructions": request.form["instructions"],
+#         "under30": request.form["under30"],
+#         "last_made": request.form["last_made"],
+#         # "user_id": session["id"]
+#     }
+#     Idea.update(data)
+#     return redirect('/success')
+
+
+
+
+# @app.route('/delete/idea/<int:id>')
+# def delete_idea(id):
+#     if 'id' not in session:
+#         return redirect('/exit')           # used only in GET method routes
+#     data = {
+#         "id":id
+#     }
+#     Idea.delete(data)
+#     return redirect('/success')
 
 
 

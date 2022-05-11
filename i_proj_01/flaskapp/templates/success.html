@@ -11,28 +11,30 @@
     <div class="wrapper">
         <div class="topbar_div">
             <div class="title_div">
-                <h1>Welcome, {{user.f_name}}!</h1>
+                <h1>Welcome, {{user.f_name}} of id {{user.id}}</h1>
             </div>
             <div class="nav_div">
                 <ul>
-                    <li><a href="/add">Create</a></li>
+                    <!-- <li><a href="/add">Create</a></li> -->
                     <li><a href="/exit">Logout</a></li>
                 </ul>
             </div>
         </div>
         <div>
-            <p>Here are the recipes in the system.</p>
             <table>
-                <tr>
+            </br>
+                <!-- <tr>
                     <th>Name</th>
                     <th>Under 30 Minutes</th>
                     <th>Actions</th>
-                </tr>
-                    {% for recipe in recipes %}
+                </tr> -->
+                    {% for idea in ideas %}
                 <tr>
-                    <td>{{recipe.r_name}}</td>
-                    <td>{{recipe.under30}}</td>
-                    <td><a href="/details/{{ recipe.id }}">View</a> | <a href="/edit_load_recipe/{{ recipe.id }}">Edit</a> | <a href="/delete/recipe/{{ recipe.id }}">Delete</a></td>
+                    <td>{{idea.user_id}} says:</td> 
+                    <td>{{idea.created_at}}</td>
+                    <!-- <td>{{idea.idea_summ}}</td> -->
+                    <!-- <td>{{idea.summary}}</td> -->
+                    <td>{{idea.id}}</td>
                 </tr>
                     {% endfor %}
             </table>

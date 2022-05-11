@@ -32,7 +32,11 @@
     justify-content: space-between;
     padding: 20px; */
 }
-
+.head_users {
+    width: 800px;
+    margin: 0 auto;
+    /* display: block; */
+}
 /* TOPBAR and NAV  */
 
 .topbar_div {
@@ -58,7 +62,7 @@ ul {
     /* height: 30px; */
 }
 li {
-    float: left;
+    float: right;
     border: 1px solid darkgray;
     width: 100px;
     height: 36px;
@@ -180,6 +184,9 @@ padding: 8px;
 }
 
 /* ADD or EDIT */
+#idea_summ {
+    width: 60%;
+}
 .add_form {
     border: 1px solid black;
     width: 94%;
