@@ -57,7 +57,8 @@ def made_it():
         "id": session['id']
     }
     user=User.get_by_id(data)
-    ideas=Idea.get_all()
+    # ideas=Idea.get_all()
+    ideas=Idea.get_ideas_with_users()
     return render_template('success.html',user=user,ideas=ideas)
 
 

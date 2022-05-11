@@ -16,7 +16,7 @@ class Idea:
         self.summary = data['summary']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
-        self.users = []
+        self.user = None
 
 
     @classmethod
@@ -61,19 +61,33 @@ class Idea:
 
 
     @classmethod
-    def get_ideas_with_users(cls, data):
-        query = "SELECT * FROM ideas LEFT JOIN users ON ideas.user_id=users.id WHERE users.id=%(id)s"
+    def get_ideas_with_users(cls):
+        query = "SELECT * FROM ideas LEFT JOIN users ON ideas.user_id=users.id;"
         results = connectToMySQL(cls.db).query_db(query)
-        idea = cls(results[0])
+        print(results)
+        idea_list = []
         for row_from_db in results:
+            idea_data = {
+                "id": row_from_db['id'],
+                "user_id": row_from_db['user_id'],
+                "summary": row_from_db['summary'],
+                "created_at": row_from_db['created_at'],
+                "updated_at": row_from_db['updated_at']
+            }
+            new_idea = cls(idea_data)
             user_data = {
                 "id": row_from_db["users.id"],
-                "alias": row_from_db["users.alias"],
+                "f_name": row_from_db["f_name"],
+                "l_name": row_from_db["l_name"],
+                "alias": row_from_db["alias"],
+                "email": row_from_db["email"],
+                "pwd": row_from_db['pwd'],
                 "created_at": row_from_db["users.created_at"],
                 "updated_at": row_from_db["users.updated_at"]
             }
-            idea.users.append(user.User(user_data))
-            return ideas
+            new_idea.user = user.User(user_data)
+            idea_list.append(new_idea)
+        return idea_list
 
 
     @staticmethod
