@@ -38,8 +38,12 @@
                 <tr>
                     <!-- <td>{{idea.summary}}</td> -->
                     <td style=width:20%>{{idea.user.alias}}</td>
-                    <td style=width:70%>{{idea.summary}}</td>
+                    <td style=width:60%>{{idea.summary}}</td>
+                    {% if session.id == idea.user_id %}
                     <td style=width:10%><a href="/delete/idea/{{ idea.id }}">Delete</a></td>
+                    {% endif %}
+                    <td style=width:5%>{{idea.user_id}}</td>
+                    <td style=width:5%>{{user.id}}</td>
                     <!-- <td style=width:20%>{{idea.created_at}}</td> -->
                     <!-- <td>{{idea.updated_at}}</td> -->
                 </tr>
