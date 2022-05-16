@@ -20,25 +20,23 @@
                 </ul>
             </div>
         </div>
-        <h2>This recipe: "{{ recipe.r_name }}"</h2>
+        <h2>This idea's ID: {{ idea.id }}</h2>
 
-        <div class="recipe_detail">
+        <div class="idea_detail">
+            <div>{{ idea.user.alias }} said: </div>
             <div class="detail_row">
                 <div class="detail_left"><p>Description:</p></div>
-                <div class="detail_right"><p>{{recipe.r_info}}</p></div>
+                <div class="detail_right"><p>{{ idea.summary }}</p></div>
             </div>
-            <div class="detail_row">
-                <div class="detail_left"><p>Under 30 minutes:</p></div>
-                <div class="detail_right"><p>{{recipe.under30}}</p></div>
-            </div>
-            <div class="detail_row">
-                <div class="detail_left"><p>Instructions:</p></div>
-                <div class="detail_right"><p>{{recipe.instructions}}</p></div>
-            </div>
-            <div class="detail_row">
-                <div class="detail_left"><p>Date Last Made:</p></div>
-                <div class="detail_right"><p>{{recipe.last_made}}</p></div>
-            </div>
+            <h2>These users liked {{ idea.user.alias }}'s idea.</h2>
+            <table>
+                {% for like in likes %}
+                <tr>
+                    <td>{{ idea.user.alias}}</td>
+                    <td>{{ idea.user.f_name}}&nbsp;{{idea.user.l_name}}</td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
     </div>
 </body>

@@ -34,19 +34,20 @@ def delete_idea(id):
 
 
 
-# @app.route('/details/<int:id>')
-# def show_idea(id):
-#     if 'id' not in session:
-#         return redirect('/exit')           # used only in GET method routes
-#     data = {
-#         "id": id
-#     }
-#     user_data = {
-#         "id": session['id']
-#     }
-#     user=User.get_by_id(user_data)
-#     this_idea=Idea.get_by_id(data)
-#     return render_template('details.html',user=user,idea=this_idea)
+@app.route('/details/<int:id>')
+def show_idea(id):
+    if 'id' not in session:
+        return redirect('/exit')           # used only in GET method routes
+    data = {
+        "id": id
+    }
+    user_data = {
+        "id": session['id']
+    }
+    user=User.get_by_id(user_data)
+    this_idea=Idea.get_by_id(data)
+    ideas=Idea.get_ideas_with_users()
+    return render_template('details.html',user=user,idea=this_idea,ideas=ideas)
 
 
 
