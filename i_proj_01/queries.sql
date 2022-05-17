@@ -16,7 +16,7 @@ SELECT * FROM likes;
 
 DELETE FROM likes WHERE id IN (5,6);
 
-DELETE FROM ideas WHERE id BETWEEN 15 AND 19;
+DELETE FROM ideas WHERE id BETWEEN 15 AND 18;
 
 INSERT INTO likes (user_id, idea_id) VALUES (4,15);
 
@@ -31,3 +31,5 @@ SELECT * FROM likes LEFT JOIN users ON likes.user_id = users.id LEFT JOIN ideas 
 #SELECT COUNT(*) FROM likes WHERE (SELECT * FROM ideas LEFT JOIN users ON ideas.user_id=users.id LEFT JOIN likes ON likes.idea_id = ideas.id);
 
 SELECT * FROM ideas LEFT JOIN users ON ideas.user_id=users.id LEFT JOIN (SELECT user_id, COUNT(*) AS like_count FROM likes) ON likes_count.id = ideas.id;
+
+SET FOREIGN_KEY_CHECKS=0;
