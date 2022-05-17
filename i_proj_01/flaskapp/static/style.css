@@ -170,6 +170,11 @@ padding: 8px;
 
 
 /* RECIPE */
+.idea_box {
+    width: 100%;
+    height: 72px;
+    border: solid black 1px;
+}
 .recipe_detail {
     border: 1px solid black;
     width: 94%;

@@ -66,7 +66,6 @@ class Idea:
     def get_ideas_with_users(cls):
         query = "SELECT * FROM ideas LEFT JOIN users ON ideas.user_id=users.id;"
         # query = "SELECT * FROM ideas LEFT JOIN users ON ideas.user_id=users.id LEFT JOIN likes ON likes.idea_id = ideas.id;"
-
         results = connectToMySQL(cls.db).query_db(query)
         # print(results)
         idea_list = []
@@ -89,8 +88,8 @@ class Idea:
                 "created_at": row_from_db["users.created_at"],
                 "updated_at": row_from_db["users.updated_at"]
             }
-            # new_idea.user = user.User(user_data)
-            new_idea.liked_by = user.User(user_data)
+            new_idea.user = user.User(user_data)
+            # new_idea.liked_by = user.User(user_data)
             idea_list.append(new_idea)
         return idea_list
 

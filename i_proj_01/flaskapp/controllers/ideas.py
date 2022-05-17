@@ -62,7 +62,7 @@ def show_idea(id):
     }
     user=User.get_by_id(user_data)
     this_idea=Idea.read_idea_with_likes(data)
-    print('***************', this_idea)
+    # print('***************', this_idea)
     return render_template('details.html',user=user,idea=this_idea)
 
 # def show_idea(id):
