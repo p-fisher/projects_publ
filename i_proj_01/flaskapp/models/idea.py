@@ -17,6 +17,8 @@ class Idea:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         self.user = None
+        self.liked_by = []
+        self.creator = None
 
 
     @classmethod
@@ -63,8 +65,10 @@ class Idea:
     @classmethod
     def get_ideas_with_users(cls):
         query = "SELECT * FROM ideas LEFT JOIN users ON ideas.user_id=users.id;"
+        # query = "SELECT * FROM ideas LEFT JOIN users ON ideas.user_id=users.id LEFT JOIN likes ON likes.idea_id = ideas.id;"
+
         results = connectToMySQL(cls.db).query_db(query)
-        print(results)
+        # print(results)
         idea_list = []
         for row_from_db in results:
             idea_data = {
@@ -85,9 +89,69 @@ class Idea:
                 "created_at": row_from_db["users.created_at"],
                 "updated_at": row_from_db["users.updated_at"]
             }
-            new_idea.user = user.User(user_data)
+            # new_idea.user = user.User(user_data)
+            new_idea.liked_by = user.User(user_data)
             idea_list.append(new_idea)
         return idea_list
+
+
+    @classmethod
+    def like_idea(cls, data):
+        query = "INSERT INTO likes (user_id, idea_id) VALUES (%(user_id)s, %(idea_id)s);"
+        results = connectToMySQL(cls.db).query_db(query, data)
+        print(results)
+        return results
+
+
+
+    @classmethod
+    def read_idea_with_likes(cls, data):
+        # query = "SELECT * FROM likes LEFT JOIN users ON likes.user_id = users.id LEFT JOIN ideas ON likes.idea_id = ideas.id WHERE ideas.id = %(id)s;"
+        query = """
+        SELECT * 
+        FROM likes 
+        LEFT JOIN users 
+        ON likes.user_id = users.id 
+        LEFT JOIN ideas 
+        ON likes.idea_id = ideas.id 
+        LEFT JOIN users AS creator 
+        ON ideas.user_id = creator.id 
+        WHERE ideas.id = %(id)s
+        ;"""
+        results = connectToMySQL(cls.db).query_db(query, data)
+        print('^^^^^^^^^^^^^^^^', results)
+        idea_data = {
+            "id": results[0]['ideas.id'],
+            "user_id": results[0]['user_id'],
+            "summary": results[0]['summary'],
+            "created_at": results[0]['created_at'],
+            "updated_at": results[0]['updated_at']
+        }
+        creator_data = {
+            "id": results[0]["creator.id"],
+            "f_name": results[0]["creator.f_name"],
+            "l_name": results[0]["creator.l_name"],
+            "alias": results[0]["creator.alias"],
+            "email": results[0]["creator.email"],
+            "pwd": results[0]['creator.pwd'],
+            "created_at": results[0]["creator.created_at"],
+            "updated_at": results[0]["creator.updated_at"]
+        }
+        this_idea = cls(idea_data)
+        for row in results:
+            liker_data = {
+                "id": row["id"],
+                "f_name": row["f_name"],
+                "l_name": row["l_name"],
+                "alias": row["alias"],
+                "email": row["email"],
+                "pwd": row['pwd'],
+                "created_at": row["created_at"],
+                "updated_at": row["updated_at"]
+            }
+            this_idea.liked_by.append(user.User(liker_data))
+            this_idea.creator = (user.User(creator_data))
+        return this_idea
 
 
     @staticmethod

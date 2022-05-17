@@ -34,6 +34,22 @@ def delete_idea(id):
 
 
 
+
+@app.route("/like/idea/<int:id>")
+def like_idea(id):
+    # Go to db, add idea id and user id to like table.
+    if 'id' not in session:
+        return redirect('/exit')           # used only in GET method routes
+    data = {
+        "idea_id": id,
+        "user_id": session['id']
+    }
+    Idea.like_idea(data)
+    return redirect('/success')
+
+
+
+
 @app.route('/details/<int:id>')
 def show_idea(id):
     if 'id' not in session:
@@ -45,11 +61,23 @@ def show_idea(id):
         "id": session['id']
     }
     user=User.get_by_id(user_data)
-    this_idea=Idea.get_by_id(data)
-    ideas=Idea.get_ideas_with_users()
-    return render_template('details.html',user=user,idea=this_idea,ideas=ideas)
+    this_idea=Idea.read_idea_with_likes(data)
+    print('***************', this_idea)
+    return render_template('details.html',user=user,idea=this_idea)
 
-
+# def show_idea(id):
+#     if 'id' not in session:
+#         return redirect('/exit')           # used only in GET method routes
+#     data = {
+#         "id": id
+#     }
+#     user_data = {
+#         "id": session['id']
+#     }
+#     user=User.get_by_id(user_data)
+#     this_idea=Idea.get_by_id(data)
+#     # ideas=Idea.get_ideas_with_users()
+#     return render_template('details.html',user=user,idea=this_idea) # ,ideas=ideas
 
 # @app.route('/add')
 # def new_idea():
