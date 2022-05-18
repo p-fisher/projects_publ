@@ -40,7 +40,7 @@
                     <td style=width:20%>{{idea.user.alias}}</td>
                     <td style=width:65%>{{idea.summary}}</td>
                     {% if session.id == idea.user_id %}
-                    <td style=width:15%><a href="/delete/idea/{{ idea.id }}">Delete</a>  |  <a href="/edit/idea/{{ idea.id }}">Edit</a></td>
+                    <td style=width:15%><a href="/delete/idea/{{ idea.id }}">Delete</a>  |  <a href="/edit_load_idea/{{ idea.id }}">Edit</a></td>
                     {% endif %}
                     <!-- <td style=width:5%>{{idea.user_id}}</td> -->
                     <!-- <td style=width:5%>{{user.id}}</td> -->
