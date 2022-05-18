@@ -139,12 +139,12 @@ class Idea:
         this_idea = cls(idea_data)
         for row in results:
             liker_data = {
-                "id": row["id"],
+                "id": row["users.id"],
                 "f_name": row["f_name"],
                 "l_name": row["l_name"],
                 "alias": row["alias"],
                 "email": row["email"],
-                "pwd": row['pwd'],
+                "pwd": row["pwd"],
                 "created_at": row["created_at"],
                 "updated_at": row["updated_at"]
             }
