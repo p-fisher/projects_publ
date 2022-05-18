@@ -34,6 +34,23 @@ def register():
 
 
 
+@app.route('/users/detail/<int:id>')
+def show_user(id):
+    if 'id' not in session:
+        return redirect('/exit')           # used only in GET method routes
+    # data = {
+    #     "id": id
+    # }
+    user_data = {
+        "id": session['id']
+    }
+    user=User.get_by_id(user_data)
+    # this_idea=Idea.read_idea_with_likes(data)
+    # print('***************', this_idea)
+    return render_template('userdetails.html',user=user)
+
+
+
 
 @app.route('/sign_in', methods=['POST'])
 def sign_in():

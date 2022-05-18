@@ -33,12 +33,14 @@
             <table>
                 <tr>
                     <th>User Alias</th>
-                    <th> User Name</th>
+                    <th>User Name</th>
+                    <th>User ID</th>
                 </tr>
                 {% for user in idea.liked_by %}
                 <tr>
-                    <td>{{ user.alias}}</td>
-                    <td>{{ user.f_name}}&nbsp;{{user.l_name}}</td>
+                    <td><a href="/users/detail/{{ user.id }}">{{ user.alias }}</a></td>
+                    <td>{{user.f_name}}&nbsp;{{user.l_name}}</td>
+                    <td>{{ user.id }}</td>
                 </tr>
                 {% endfor %}
             </table>
