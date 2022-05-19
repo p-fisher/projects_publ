@@ -55,7 +55,8 @@
                     <p style="font-size: smaller;"><a href="/like/idea/{{idea.id}}">Like</a>   |   <a href="/details/{{ idea.id }}">(&nbsp;#&nbsp;)</a> People like this</p>
                 </td>
                 {% if session.id == idea.user_id %}
-                <td style="width:15%"><a href="/delete/idea/{{ idea.id }}">Delete</a>  |  <a href="/edit_load_idea/{{ idea.id }}">Edit</a></td>
+                <!-- <td style="width:15%"><a href="/delete/idea/{{ idea.id }}">Delete</a>  |  <a href="/edit_load_idea/{{ idea.id }}">Edit</a></td> -->
+                <td style="width:15%"><a href="/delete/idea/{{ idea.id }}"><img src="{{url_for('static', filename='delete_32px.png')}}"></a><a href="/edit_load_idea/{{ idea.id }}"><img src="{{url_for('static', filename='edit_32px.png')}}"></a></td>
                 {% endif %}
                 <!-- <td style=width:5%>{{idea.user_id}}</td> -->
                 <!-- <td style=width:5%>{{user.id}}</td> -->

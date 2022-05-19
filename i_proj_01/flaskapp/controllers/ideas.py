@@ -1,5 +1,5 @@
 from flaskapp import app
-from flask import render_template, redirect, request, session
+from flask import render_template, redirect, request, session, url_for
 from flaskapp.models.user import User
 from flaskapp.models.idea import Idea
 from flask import flash
