@@ -37,7 +37,7 @@
     margin: 0 auto;
     /* display: block; */
 }
-/* TOPBAR and NAV  */
+/* TOPBAR and NAV  ------------------------- */
 
 .topbar_div {
     width:100%;
@@ -83,7 +83,7 @@ li a:hover {
     background-color:lightslategray;
 }
 
-/* FORM STUFF */
+/* FORM STUFF ------------------------- */
 
 .form_topbox {
     width:100%;
@@ -153,19 +153,22 @@ button {
     border-radius: 3px;
 }
 
-/* SUCCESS PAGE TABLE*/
+
+
+
+/* SUCCESS PAGE TABLE  ------------------------- */
 
 table {
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 0 auto;
     border-collapse: collapse;
 }
-tr:nth-child(even) {
+/* tr:nth-child(even) {
     background-color: #dddddd;
-}
+} */
 td, th {
-border: 1px solid #dddddd;
+/* border: 1px solid #dddddd; */
 text-align: left;
 padding: 8px;
 }
@@ -211,7 +214,7 @@ padding: 8px;
     line-height: 22px;
 }
 
-/* ADD or EDIT */
+/* ADD or EDIT  ------------------------- */
 #idea_summ {
     width: 60%;
 }
@@ -262,3 +265,80 @@ color: white;
 text-align: center;
 height: 30px;
 } */
+
+
+
+/* IDEAS AND USERS  ------------------------- */
+
+.iu_topbar_div {
+    width: 100%;
+    height: 70px;
+    /* display: flex; */
+    background-color:darkslategray;
+}
+.iu_topbar_nav {
+    width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.iu_title_div {
+    width: 40%;
+    font-size:2em;
+    font-weight:700;
+    color: white;
+    line-height: 2em;
+}
+.iu_nav_div {
+    width: 30%;
+}
+.iu_wrapper {
+    margin: 0 auto;
+    width: 800px;
+    /* background-color: black; */
+    padding: 10px;
+    /* display: flex; */
+}
+.iu_all_row_container {
+    width: 475px;
+    background-color: pink;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+.iu_all_row_alias {
+    width: 20%;
+    background-color: cyan;
+    height: 100%
+}
+.iu_all_row_idea {
+    width: 60%;
+    background-color: green;
+    height: 100%;
+}
+.iu_all_row_tools {
+    width: 20%;
+    background-color: magenta;
+    height: 100%;
+}
+.iu_all_row_likes {
+    width: 100%;
+    background-color: yellow;
+    height: 50px;
+    display: block;
+}
+.idea_td {
+    border: 1px solid gray;
+    width: 62%;
+    /* margin-bottom: 20px; */
+}
+/* .idea_tr {
+    height: fit-content;
+    margin-bottom: 20px;
+} */
+.idea_table {
+    border-collapse: separate;
+    border-spacing: 0 2em;
+}

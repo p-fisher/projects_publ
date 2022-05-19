@@ -90,19 +90,19 @@ def show_idea(id):
 #     return render_template('add_idea.html', user=user)
 
 
-# @app.route('/edit_load_idea/<int:id>')
-# def edit_load_idea(id):
-#     if 'id' not in session:
-#         return redirect('/exit')           # used only in GET method routes
-#     data = {
-#         "id": id
-#     }
-#     user_data = {
-#         "id":session['id']
-#     }
-#     user=User.get_by_id(user_data)
-#     this_idea=Idea.get_by_id(data)
-#     return render_template("edit_idea.html",user=user,idea=this_idea)
+@app.route('/edit_load_idea/<int:id>')
+def edit_load_idea(id):
+    if 'id' not in session:
+        return redirect('/exit')           # used only in GET method routes
+    data = {
+        "id": id
+    }
+    user_data = {
+        "id":session['id']
+    }
+    user=User.get_by_id(user_data)
+    this_idea=Idea.get_by_id(data)
+    return render_template("edit_idea.html",user=user,idea=this_idea)
 
 
 

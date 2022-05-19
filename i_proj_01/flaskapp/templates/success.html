@@ -8,54 +8,81 @@
     <title>Summary View</title>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="topbar_div">
-            <div class="title_div">
-                <h1>Welcome, {{user.f_name}} at id {{user.id}}</h1>
-            </div>
-            <div class="nav_div">
+    <!-- <div class="wrapper"> -->
+        <div class="iu_topbar_div">
+            <div class="iu_topbar_nav">
+            <div class="iu_title_div">Bright Ideas</div>
+            <div class="iu_nav_div">
                 <ul>
                     <!-- <li><a href="/add">Create</a></li> -->
                     <li><a href="/exit">Logout</a></li>
                 </ul>
             </div>
         </div>
-        <div>
+        </div>
+        
+        <div class="iu_wrapper">
+            <h2>Welcome, {{user.f_name}} at id {{user.id}}</h2>
             <p>Below are some bright ideas. First, care to add your own?</p>
+
             <form action="/create/idea" method="POST">
                 <div>
                     <!-- <label for="summary">First name:</label><br> -->
-                    <textarea id="summary" name="summary" cols="82" rows="4" value="Post something witty here."></textarea>
+                    <textarea id="summary" name="summary" cols="80" rows="4" value="Post something witty here."></textarea>
                     <!-- <label for="user_id">First name:</label><br> -->
                     <input type="hidden" id="user_id" name="user_id" value="{{user.id}}">
                     <button>Add Yours!</button>
-            </div>
+                </div>
             </form>
 
-            <table>
-            </br>
-                    {% for idea in ideas %}
-                <tr>
-                    <!-- <td>{{idea.summary}}</td> -->
-                    <td style=width:20%>{{idea.user.alias}}</td>
-                    <td style=width:65%>{{idea.summary}}</td>
-                    {% if session.id == idea.user_id %}
-                    <td style=width:15%><a href="/delete/idea/{{ idea.id }}">Delete</a>  |  <a href="/edit_load_idea/{{ idea.id }}">Edit</a></td>
-                    {% endif %}
-                    <!-- <td style=width:5%>{{idea.user_id}}</td> -->
-                    <!-- <td style=width:5%>{{user.id}}</td> -->
-                    <!-- <td style=width:20%>{{idea.created_at}}</td> -->
-                    <!-- <td>{{idea.updated_at}}</td> -->
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><a href="/like/idea/{{idea.id}}">Like</a>   |   <a href="/details/{{ idea.id }}">(&nbsp;#&nbsp;)</a> People like this</td>
-                </tr>
-                    {% endfor %}
-            </table>
-        </div>
-    
-    </div>
 
+        </br>
+        </br>
+
+        <table class="idea_table">
+            <!-- <tr>
+                <th>Creator Alias</th>
+                <th>Contributed Idea</th>
+                <th>Owner Tools</th>
+            </tr> -->
+                {% for idea in ideas %}
+                <!-- <tr style="height:72px;"> -->
+                <tr class="idea_tr">
+                        <!-- <td>{{idea.summary}}</td> -->
+                <td style="width:20%">By: {{idea.user.alias}}</td>
+                <!-- <td style="width:65%; border:1px grey;">{{idea.summary}} -->
+                <td class="idea_td">{{idea.summary}}
+                    <p style="font-size: smaller;"><a href="/like/idea/{{idea.id}}">Like</a>   |   <a href="/details/{{ idea.id }}">(&nbsp;#&nbsp;)</a> People like this</p>
+                </td>
+                {% if session.id == idea.user_id %}
+                <td style="width:15%"><a href="/delete/idea/{{ idea.id }}">Delete</a>  |  <a href="/edit_load_idea/{{ idea.id }}">Edit</a></td>
+                {% endif %}
+                <!-- <td style=width:5%>{{idea.user_id}}</td> -->
+                <!-- <td style=width:5%>{{user.id}}</td> -->
+                <!-- <td style=width:20%>{{idea.created_at}}</td> -->
+                <!-- <td>{{idea.updated_at}}</td> -->
+            </tr>
+            <!-- <tr>
+                <td></td>
+                <td><a href="/like/idea/{{idea.id}}">Like</a>   |   <a href="/details/{{ idea.id }}">(&nbsp;#&nbsp;)</a> People like this</td>
+            </tr> -->
+                {% endfor %}
+        </table>
+
+            
+            <!-- <div>
+                {% for idea in ideas %}
+                <div class="iu_all_row_container">
+                    <div class="iu_all_row_alias">{{idea.user.alias}}</div>
+                    <div class="iu_all_row_idea">{{idea.summary}}</div>
+                    {% if session.id == idea.user_id %}
+                    <div class="iu_all_row_tools"><a href="/delete/idea/{{ idea.id }}">Delete</a>  |  <a href="/edit_load_idea/{{ idea.id }}">Edit</a></div>
+                    {% endif %}
+                    <div class="iu_all_row_likes"><a href="/like/idea/{{idea.id}}">Like</a>   |   <a href="/details/{{ idea.id }}">(&nbsp;#&nbsp;)</a> People like this</div>
+                    {% endfor %}
+                    
+                </div>
+            </div> -->
+        </div>
 </body>
 </html>
