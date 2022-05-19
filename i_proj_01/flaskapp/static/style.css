@@ -342,3 +342,7 @@ height: 30px;
     border-collapse: separate;
     border-spacing: 0 2em;
 }
+.idea_tools {
+    text-align: right;
+    width: 15%;
+}
