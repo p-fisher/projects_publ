@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,6 +21,33 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>Summary View</title>
+    </head>
+    <body>
+        <!-- <div class="wrapper"> -->
+            <div class="iu_topbar_div">
+                <div class="iu_topbar_nav">
+                <div class="iu_title_div">Bright Ideas</div>
+                <div class="iu_nav_div">
+                    <ul>
+                        <li><a href="/success">Summaries</a></li>
+                        <li><a href="/exit">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+    
+            <div class="iu_wrapper">
+                <h2>Welcome, {{user.f_name}} at id {{user.id}}</h2>
+                <p>User Details for ___</p>
+            </div>
 </body>
 </html>
