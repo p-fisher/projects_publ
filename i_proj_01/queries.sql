@@ -18,7 +18,7 @@ DELETE FROM likes WHERE id IN (5,6);
 
 DELETE FROM ideas WHERE id BETWEEN 15 AND 18;
 DELETE FROM ideas WHERE id = 18;
-commit;
+-- commit;
 
 
 INSERT INTO likes (user_id, idea_id) VALUES (4,15);
@@ -27,17 +27,19 @@ SELECT COUNT(*) FROM likes WHERE idea_id = 7;
 
 SELECT * FROM likes LEFT JOIN users ON likes.user_id = users.id LEFT JOIN ideas ON likes.idea_id = ideas.id WHERE ideas.id = 15;
 
-SELECT * FROM likes LEFT JOIN users ON likes.user_id = users.id LEFT JOIN ideas ON likes.idea_id = ideas.id LEFT JOIN users AS creator ON ideas.user_id = creator.id WHERE ideas.id = 15;
+-- this is the one in use 
+SELECT * FROM likes LEFT JOIN users ON likes.user_id = users.id LEFT JOIN ideas ON likes.idea_id = ideas.id LEFT JOIN users AS creator ON ideas.user_id = creator.id WHERE ideas.id = 5;
 
-## tinkering with count on join queries for like counts
-#SELECT COUNT(*) FROM likes WHERE (SELECT * FROM ideas LEFT JOIN users ON ideas.user_id=users.id LEFT JOIN likes ON likes.idea_id = ideas.id);
+--  tinkering with count on join queries for like counts
+-- SELECT COUNT(*) FROM likes WHERE (SELECT * FROM ideas LEFT JOIN users ON ideas.user_id=users.id LEFT JOIN likes ON likes.idea_id = ideas.id);
+-- SELECT DISTINCT COUNT(*) FROM likes LEFT JOIN users ON likes.user_id = users.id LEFT JOIN ideas ON likes.idea_id = ideas.id LEFT JOIN users AS creator ON ideas.user_id = creator.id WHERE ideas.id = 5;
+-- SELECT * FROM likes LEFT JOIN users ON likes.user_id = users.id LEFT JOIN ideas ON (SELECT DISTINCT likes.user_id WHERE likes.idea_id = ideas.id) LEFT JOIN users AS creator ON ideas.user_id = creator.id WHERE ideas.id = 5;
+-- SELECT * FROM ideas LEFT JOIN users ON ideas.user_id=users.id LEFT JOIN (SELECT user_id, COUNT(*) AS like_count FROM likes) ON likes_count.id = ideas.id;
 
-SELECT * FROM ideas LEFT JOIN users ON ideas.user_id=users.id LEFT JOIN (SELECT user_id, COUNT(*) AS like_count FROM likes) ON likes_count.id = ideas.id;
+-- more tinkering trying to sort out only what columns are used so i might try a distinct on the user alias or id
+-- SELECT i.user_id,i.summary,u.f_name,u.l_name,u.alias from ideas AS i JOIN users as u ON i.user_id=u.id;
 
-##more tinkering
-SELECT i.user_id,i.summary,u.f_name,u.l_name,u.alias from ideas AS i JOIN users as u ON i.user_id=u.id;
-
-rollback;
+-- rollback;
 
 SET FOREIGN_KEY_CHECKS=0;
 DELETE FROM ideas WHERE id = 15;
