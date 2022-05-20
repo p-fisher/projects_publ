@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Summary View</title>
+</head>
+<body>
+    <!-- <div class="wrapper"> -->
+        <div class="iu_topbar_div">
+            <div class="iu_topbar_nav">
+            <div class="iu_title_div">Bright Ideas</div>
+            <div class="iu_nav_div">
+                <ul>
+                    <li><a href="/success">Summaries</a></li>
+                    <li><a href="/exit">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+
+        <div class="iu_wrapper">
+            <h2>Welcome, {{user.f_name}} at id {{user.id}}</h2>
+        <!-- <h2>This idea: ID {{ idea.id }} by user "{{ idea.creator.alias }}"</h2> -->
+        <!-- <h2>Bright idea (ID {{ idea.id }}) by "{{idea.creator.alias}}":</h2> -->
+        <!-- <h2>User "{{idea.creator.alias}} had this bright idea (ID {{ idea.id }}):</h2> -->
+        <h2>Edit your idea and save.</h2>
+
+        <form action="/edit_save_idea" method="POST">
+            <input type="hidden" id="id" name="id" value="{{ idea.id }}" />
+
+        <div class="idea_detail">
+            <!-- <div>{{ idea.creator.alias }} said: </div> -->
+            <div class="detail_row">
+                <!-- <div class="detail_left"><p>"{{idea.creator.alias}}'s" bright idea (ID {{ idea.id }}):</p></div> -->
+                <!-- <div id="summary"><p>{{ idea.summary }}</p></div> -->
+                <label for="summary"></label><br>
+                <input type="textarea" id="summary" name="summary" value="{{ idea.summary }}">
+            </div>
+        <button type="submit">Save</button>
+        </div>
+        </form>
+        </div>
+
+</body>
+</html>

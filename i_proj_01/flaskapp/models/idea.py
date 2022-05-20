@@ -21,21 +21,22 @@ class Idea:
         self.creator = None
 
 
-    @classmethod
-    def add_idea(cls,data):
-        query = "INSERT INTO ideas (summary, created_at, user_id) VALUES (%(summary)s, NOW(), %(user_id)s);"
-        print(data)
-        return connectToMySQL(cls.db).query_db(query,data)
-        #return from db you get is just the id
-
-
     # @classmethod
-    # def update(cls,data):
-    #     # query = "UPDATE ideas SET r_name,instructions,r_info,under30,last_made,updated_at,user_id = %(r_name)s, %(instructions)s, %(r_info)s, %(under30)s, %(last_made)s, NOW(),'1';"
-    #     query = "UPDATE ideas SET r_name = %(r_name)s, instructions = %(instructions)s, r_info = %(r_info)s, under30 = %(under30)s, last_made = %(last_made)s, updated_at = NOW() WHERE ID = %(id)s;"
+    # def add_idea(cls,data):
+    #     query = "INSERT INTO ideas (summary, created_at, user_id) VALUES (%(summary)s, NOW(), %(user_id)s);"
     #     print(data)
     #     return connectToMySQL(cls.db).query_db(query,data)
     #     #return from db you get is just the id
+
+
+    @classmethod
+    def update(cls,data):
+        # query = "UPDATE ideas SET r_name,instructions,r_info,under30,last_made,updated_at,user_id = %(r_name)s, %(instructions)s, %(r_info)s, %(under30)s, %(last_made)s, NOW(),'1';"
+        # query = "UPDATE ideas SET r_name = %(r_name)s, instructions = %(instructions)s, r_info = %(r_info)s, under30 = %(under30)s, last_made = %(last_made)s, updated_at = NOW() WHERE ID = %(id)s;"
+        query="UPDATE ideas SET summary = %(summary)s, updated_at = NOW() WHERE ID = %(id)s;"
+        print(data)
+        return connectToMySQL(cls.db).query_db(query,data)
+        #return from db you get is just the id
 
 
     @classmethod

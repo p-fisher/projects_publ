@@ -106,19 +106,15 @@ def edit_load_idea(id):
 
 
 
-# @app.route('/edit_save_idea', methods=['POST'])
-# def edit_save_idea():
-#     data = {
-#         "id": request.form['id'],
-#         "r_name": request.form["r_name"],
-#         "r_info": request.form["r_info"],
-#         "instructions": request.form["instructions"],
-#         "under30": request.form["under30"],
-#         "last_made": request.form["last_made"],
-#         # "user_id": session["id"]
-#     }
-#     Idea.update(data)
-#     return redirect('/success')
+@app.route('/edit_save_idea', methods=['POST'])
+def edit_save_idea():
+    data = {
+        "id": request.form['id'],
+        "summary": request.form["summary"],
+        # "user_id": session["id"]
+    }
+    Idea.update(data)
+    return redirect('/success')
 
 
 

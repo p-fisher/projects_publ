@@ -25,6 +25,16 @@
             <h2>Welcome, {{user.f_name}} at id {{user.id}}</h2>
             <p>Below are some bright ideas. First, care to add your own?</p>
 
+            {% with messages = get_flashed_messages(category_filter=['register']) %}
+            {% if messages %}
+            <div>
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+    
             <form action="/create/idea" method="POST">
                 <div>
                     <!-- <label for="summary">First name:</label><br> -->
