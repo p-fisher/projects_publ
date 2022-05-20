@@ -39,7 +39,8 @@
                 <!-- <div class="detail_left"><p>"{{idea.creator.alias}}'s" bright idea (ID {{ idea.id }}):</p></div> -->
                 <!-- <div id="summary"><p>{{ idea.summary }}</p></div> -->
                 <label for="summary"></label><br>
-                <input type="textarea" id="summary" name="summary" value="{{ idea.summary }}">
+                <input type="textarea" id="summary" name="summary" cols="96" rows="4" value="{{ idea.summary }}">
+                <!-- <textarea id="summary" name="summary" cols="96" rows="4" value="{{ idea.summary }}"></textarea> -->
             </div>
         <button type="submit">Save</button>
         </div>

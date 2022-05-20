@@ -150,7 +150,9 @@ input[type=text] {
     border:1px solid black;
     resize: none;
     padding: 10px;
+    background-color:#E8d290;
 }
+
 input[type=textarea] {
     /* margin: 5px 0 40px 0; */
     /* width: 91%;
@@ -161,6 +163,8 @@ input[type=textarea] {
 
 button {
     height: 25px;
+    background-color:#1db8b2;
+    color: white;
 }
 #exit_btn {
     height:25px;
@@ -349,7 +353,8 @@ height: 30px;
     display: block;
 }
 .idea_td {
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
+    border: 2px solid darkslategray;
     width: 65%;
     /* margin-bottom: 20px; */
 }

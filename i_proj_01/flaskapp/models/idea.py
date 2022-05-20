@@ -21,12 +21,12 @@ class Idea:
         self.creator = None
 
 
-    # @classmethod
-    # def add_idea(cls,data):
-    #     query = "INSERT INTO ideas (summary, created_at, user_id) VALUES (%(summary)s, NOW(), %(user_id)s);"
-    #     print(data)
-    #     return connectToMySQL(cls.db).query_db(query,data)
-    #     #return from db you get is just the id
+    @classmethod
+    def add_idea(cls,data):
+        query = "INSERT INTO ideas (summary, created_at, user_id) VALUES (%(summary)s, NOW(), %(user_id)s);"
+        print(data)
+        return connectToMySQL(cls.db).query_db(query,data)
+        #return from db you get is just the id
 
 
     @classmethod
