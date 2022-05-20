@@ -35,8 +35,9 @@
         <!-- <div class="wrapper"> -->
             <div class="iu_topbar_div">
                 <div class="iu_topbar_nav">
-                <div class="iu_title_div">Bright Ideas</div>
-                <div class="iu_nav_div">
+                    <div class="iu_title_div">Bright Ideas</div>
+                    <div class="header_bulb"><img id="header_bulb" src="{{url_for('static', filename='bulb_tilt_grad_64px.png')}}"></div>
+                    <div class="iu_nav_div">
                     <ul>
                         <li><a href="/success">Summaries</a></li>
                         <li><a href="/exit">Logout</a></li>
@@ -47,6 +48,7 @@
     
             <div class="iu_wrapper">
                 <h2>Welcome, {{user.f_name}} at id {{user.id}}</h2>
+                <br>
                 <p>User Details for ___</p>
             </div>
 </body>
