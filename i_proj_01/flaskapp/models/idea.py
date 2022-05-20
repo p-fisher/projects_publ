@@ -159,7 +159,7 @@ class Idea:
         is_valid = True
         if len(idea['summary']) < 30:
             is_valid = False
-            flash("Idea should be more substantive! Add more content.","idea")
+            flash("Ideas should be more substantive! Please use at least 30 characters.","idea")
         # if len(idea['instructions']) < 3:
         #     is_valid = False
         #     flash("Instructions must be 3 or more in length.","idea")

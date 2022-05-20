@@ -27,11 +27,11 @@
             <br>
             <p>Below are some bright ideas. First, care to add your own?</p>
 
-            {% with messages = get_flashed_messages(category_filter=['register']) %}
+            {% with messages = get_flashed_messages(category_filter=['idea']) %}
             {% if messages %}
             <div>
                 {% for message in messages %}
-                <p>{{message}}</p>
+                <p style="color: red; font-weight:600;">{{message}}</p>
                 {% endfor %}
             </div>
             {% endif %}
