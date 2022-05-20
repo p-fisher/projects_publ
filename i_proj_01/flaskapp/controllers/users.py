@@ -38,16 +38,17 @@ def register():
 def show_user(id):
     if 'id' not in session:
         return redirect('/exit')           # used only in GET method routes
-    # data = {
-    #     "id": id
-    # }
+    liked_by_data = {
+        "id": id
+    }
     user_data = {
         "id": session['id']
     }
     user=User.get_by_id(user_data)
+    liked_by=User.get_by_id(liked_by_data)
     # this_idea=Idea.read_idea_with_likes(data)
     # print('***************', this_idea)
-    return render_template('user_detail.html',user=user)
+    return render_template('user_detail.html',user=user,liked_by=liked_by)
 
 
 
