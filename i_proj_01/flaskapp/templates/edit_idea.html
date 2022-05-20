@@ -11,8 +11,9 @@
     <!-- <div class="wrapper"> -->
         <div class="iu_topbar_div">
             <div class="iu_topbar_nav">
-            <div class="iu_title_div">Bright Ideas</div>
-            <div class="iu_nav_div">
+                <div class="iu_title_div">Bright Ideas</div>
+                <div class="header_bulb"><img id="header_bulb" src="{{url_for('static', filename='bulb_tilt_grad_64px.png')}}"></div>
+                <div class="iu_nav_div">
                 <ul>
                     <li><a href="/success">Summaries</a></li>
                     <li><a href="/exit">Logout</a></li>
@@ -26,7 +27,8 @@
         <!-- <h2>This idea: ID {{ idea.id }} by user "{{ idea.creator.alias }}"</h2> -->
         <!-- <h2>Bright idea (ID {{ idea.id }}) by "{{idea.creator.alias}}":</h2> -->
         <!-- <h2>User "{{idea.creator.alias}} had this bright idea (ID {{ idea.id }}):</h2> -->
-        <h2>Edit your idea and save.</h2>
+        <br>
+        <h3>Edit your idea... more to say?</h3>
 
         <form action="/edit_save_idea" method="POST">
             <input type="hidden" id="id" name="id" value="{{ idea.id }}" />

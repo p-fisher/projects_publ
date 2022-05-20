@@ -299,11 +299,16 @@ height: 30px;
     justify-content: space-between;
 }
 .iu_title_div {
-    width: 40%;
+    width: 30%;
     font-size:2em;
     font-weight:700;
     color: white;
     line-height: 2em;
+    align-items: center;
+}
+.header_bulb {
+    object-position: 0px 15px;
+    margin-left: -330px;
 }
 .iu_nav_div {
     width: 30%;

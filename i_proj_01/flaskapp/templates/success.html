@@ -12,6 +12,7 @@
         <div class="iu_topbar_div">
             <div class="iu_topbar_nav">
             <div class="iu_title_div">Bright Ideas</div>
+            <div class="header_bulb"><img id="header_bulb" src="{{url_for('static', filename='bulb_tilt_grad_64px.png')}}"></div>
             <div class="iu_nav_div">
                 <ul>
                     <!-- <li><a href="/add">Create</a></li> -->
@@ -23,6 +24,7 @@
         
         <div class="iu_wrapper">
             <h2>Welcome, {{user.f_name}} at id {{user.id}}</h2>
+            <br>
             <p>Below are some bright ideas. First, care to add your own?</p>
 
             {% with messages = get_flashed_messages(category_filter=['register']) %}

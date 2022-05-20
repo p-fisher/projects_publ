@@ -34,8 +34,9 @@
     <!-- <div class="wrapper"> -->
         <div class="iu_topbar_div">
             <div class="iu_topbar_nav">
-            <div class="iu_title_div">Bright Ideas</div>
-            <div class="iu_nav_div">
+                <div class="iu_title_div">Bright Ideas</div>
+                <div class="header_bulb"><img id="header_bulb" src="{{url_for('static', filename='bulb_tilt_grad_64px.png')}}"></div>
+                <div class="iu_nav_div">
                 <ul>
                     <li><a href="/success">Summaries</a></li>
                     <li><a href="/exit">Logout</a></li>
@@ -48,7 +49,8 @@
             <h2>Welcome, {{user.f_name}} at id {{user.id}}</h2>
         <!-- <h2>This idea: ID {{ idea.id }} by user "{{ idea.creator.alias }}"</h2> -->
         <!-- <h2>Bright idea (ID {{ idea.id }}) by "{{idea.creator.alias}}":</h2> -->
-        <h2>User "{{idea.creator.alias}} had this bright idea (ID {{ idea.id }}):</h2>
+        <br>
+        <h3>User "<span style="color: darkgray">{{idea.creator.alias}}</span>" had this bright idea (ID {{ idea.id }}):</h3>
         <div class="idea_detail">
             <!-- <div>{{ idea.creator.alias }} said: </div> -->
             <div class="detail_row">
@@ -56,7 +58,7 @@
                 <div id="summary"><p>{{ idea.summary }}</p></div>
             </div>
             <!-- This needs to be the creator not the person logged in -->
-            <h2>These users liked {{ idea.creator.alias }}'s idea.</h2>
+            <h3>These users liked {{ idea.creator.alias }}'s idea.</h3>
             <table>
                 <tr>
                     <th>User Alias</th>
